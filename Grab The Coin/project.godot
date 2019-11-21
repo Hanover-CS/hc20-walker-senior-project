@@ -16,7 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Grab The Coin"
+run/main_scene="res://Level 0.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "gut" )
 
 [rendering]
 

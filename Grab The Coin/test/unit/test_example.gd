@@ -1,4 +1,4 @@
-extends "res://addons/gut/test.gd";"res://KinematicBody2D.gd"
+extends "res://addons/gut/test.gd"
 
 	
 func before_each():
