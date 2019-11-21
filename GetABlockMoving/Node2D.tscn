@@ -26,10 +26,10 @@ nextWorld = "res://World2.tscn"
 
 [node name="Gut" type="Control" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 1424.0
-margin_top = 33.08
-margin_right = 2164.0
-margin_bottom = 283.08
+margin_left = 161.75
+margin_top = -186.295
+margin_right = 901.75
+margin_bottom = 63.705
 rect_min_size = Vector2( 740, 250 )
 script = ExtResource( 4 )
 __meta__ = {

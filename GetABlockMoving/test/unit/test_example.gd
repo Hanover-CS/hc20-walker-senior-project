@@ -1,6 +1,8 @@
-extends "res://addons/gut/test.gd";"res://KinematicBody2D.gd"
+extends "res://addons/gut/test.gd";
 
-	
+const testPlayer = preload("res://Player.gd")
+onready var test_player = testPlayer.new()
+
 func before_each():
 	gut.p("ran setup", 2)
 
@@ -22,5 +24,16 @@ func test_assert_eq_number_equal():
 func test_assert_true_with_true():
 	assert_true(true, "Should pass, true is true")
 	
-#func test_movement():
-#	Input.is_action_pressed("ui_right")
+func test_movement():
+	var right = Input.is_action_pressed("ui_right")
+	assert_eq(right, Input.is_action_pressed("ui_right"))
+	while right:
+		assert_eq(test_player.motion.x, min(test_player.motion.x+test_player.ACCELERATION, 
+		test_player.MAX_SPEED))
+		
+func test_movement2():
+	var left = Input.is_action_pressed("ui_left")
+	assert_eq(left, Input.is_action_pressed("ui_left"))
+	while left:
+		assert_eq(test_player.motion.x, min(test_player.motion.x-test_player.ACCELERATION, 
+		-test_player.MAX_SPEED))
