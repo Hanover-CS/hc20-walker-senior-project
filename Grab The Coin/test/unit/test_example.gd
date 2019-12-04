@@ -16,11 +16,11 @@ func after_all():
 #func test_assert_eq_number_not_equal():
 #	assert_eq(1, 2, "Should fail.  1 != 2")
 
-func test_assert_eq_number_equal():
-	assert_eq('asdf', 'asdf', "Should pass")
+#func test_assert_eq_number_equal():
+#	assert_eq('asdf', 'asdf', "Should pass")
 
-func test_assert_true_with_true():
-	assert_true(true, "Should pass, true is true")
+#func test_assert_true_with_true():
+#	assert_true(true, "Should pass, true is true")
 	
 #func test_movement():
 #	Input.is_action_pressed("ui_right")

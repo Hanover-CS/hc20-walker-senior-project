@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://JungleTileSet.tres" type="TileSet" id=1]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
+[ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://addons/gut/gut.gd" type="Script" id=4]
 [ext_resource path="res://addons/gut/icon.png" type="Texture" id=5]
@@ -35,16 +35,18 @@ shape = SubResource( 1 )
 
 [node name="Gut" type="Control" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 30.0
-margin_top = -480.0
-margin_right = 770.0
-margin_bottom = -230.0
+margin_left = 130.0
+margin_top = -10.0
+margin_right = 870.0
+margin_bottom = 240.0
 rect_min_size = Vector2( 740, 250 )
 script = ExtResource( 4 )
 __meta__ = {
 "_editor_icon": ExtResource( 5 )
 }
+_select_script = "AutomatedTests"
 _yield_between_tests = false
+_file_prefix = ""
 _directory1 = "res://test/unit"
 _directory2 = "res://test/integration"
 _double_strategy = 1
