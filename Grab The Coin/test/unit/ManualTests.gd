@@ -1,4 +1,4 @@
-extends Node
+extends "res://addons/gut/test.gd"
 
 # This file contains the manual test for my project. These tests
 # will be based on simple expectations of gameplay, such as the 
