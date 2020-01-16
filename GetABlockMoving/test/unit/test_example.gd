@@ -24,21 +24,21 @@ func after_all():
 #func test_assert_true_with_true():
 #	assert_true(true, "Should pass, true is true")
 	
-func test_movement():
+func test_movement_right():
 	var right = Input.is_action_pressed("ui_right")
 	assert_eq(right, Input.is_action_pressed("ui_right"))
 	while right:
 		assert_eq(test_player.motion.x, min(test_player.motion.x+test_player.ACCELERATION, 
 		test_player.MAX_SPEED))
 		
-func test_movement2():
+func test_movement_left():
 	var left = Input.is_action_pressed("ui_left")
 	assert_eq(left, Input.is_action_pressed("ui_left"))
 	while left:
 		assert_eq(test_player.motion.x, min(test_player.motion.x-test_player.ACCELERATION, 
 		-test_player.MAX_SPEED))
 		
-func test_movement3():
+func test_movement_jump():
 	var jump = Input.is_action_pressed("ui_up")
 	assert_eq(jump, Input.is_action_pressed("ui_up"))
 	while jump:
