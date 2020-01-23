@@ -7,7 +7,7 @@
 [ext_resource path="res://addons/gut/icon.png" type="Texture" id=5]
 [ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=6]
 
-[node name="Node2D" type="Node2D"]
+[node name="World 1" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 32, 32 )
@@ -35,7 +35,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_editor_icon": ExtResource( 5 )
 }
-_select_script = ""
+_select_script = "AutomatedTests"
 _tests_like = ""
 _inner_class_name = ""
 _run_on_load = false
@@ -45,7 +45,7 @@ _log_level = 1
 _yield_between_tests = false
 _disable_strict_datatype_checks = false
 _test_prefix = "test_"
-_file_prefix = "test_"
+_file_prefix = ""
 _file_extension = ".gd"
 _inner_class_prefix = "Test"
 _temp_directory = "user://gut_temp_directory"
