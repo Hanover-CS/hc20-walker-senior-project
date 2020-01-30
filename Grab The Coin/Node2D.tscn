@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://JungleTileSet.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://addons/gut/gut.gd" type="Script" id=4]
 [ext_resource path="res://addons/gut/icon.png" type="Texture" id=5]
 [ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=6]
+[ext_resource path="res://coin.tscn" type="PackedScene" id=7]
 
 [node name="World 1" type="Node2D"]
 
@@ -38,7 +39,7 @@ __meta__ = {
 _select_script = "AutomatedTests"
 _tests_like = ""
 _inner_class_name = ""
-_run_on_load = true
+_run_on_load = false
 _should_maximize = false
 _should_print_to_console = true
 _log_level = 1
@@ -63,3 +64,6 @@ _double_strategy = 1
 tile_set = ExtResource( 6 )
 format = 1
 tile_data = PoolIntArray( 65537, 0, 1, 65538, 0, 65536, 65539, 0, 65536, 65540, 0, 2, 131073, 0, 131073, 131074, 0, 196619, 131075, 0, 196619, 131076, 0, 131074, 196609, 0, 65537, 196610, 0, 131072, 196611, 0, 131072, 196612, 0, 65538, 196614, 0, 1, 196615, 0, 2, 262150, 0, 65537, 262151, 0, 65538, 327689, 0, 1, 327690, 0, 65536, 327691, 0, 65536, 327692, 0, 65536, 327693, 0, 2, 393225, 0, 65537, 393226, 0, 131072, 393227, 0, 131072, 393228, 0, 131072, 393229, 0, 65538, 458754, 0, 1, 458755, 0, 65536, 458756, 0, 65536, 458757, 0, 2, 524290, 0, 131073, 524291, 0, 196619, 524292, 0, 196619, 524293, 0, 131074, 589826, 0, 65537, 589827, 0, 131072, 589828, 0, 131072, 589829, 0, 65538, 655367, 0, 196608, 655368, 0, 196609, 655369, 0, 196609, 655370, 0, 196609, 655371, 0, 196609, 655372, 0, 196609, 655373, 0, 196609, 655374, 0, 196609, 655375, 0, 196610 )
+
+[node name="coin" parent="." instance=ExtResource( 7 )]
+position = Vector2( 260, 40 )

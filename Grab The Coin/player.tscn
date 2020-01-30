@@ -7,9 +7,9 @@
 [ext_resource path="res://Sprites/Player/Run3.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Player/Run4.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Player/Run7.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Player/Jump3.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Player/Jump4.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Player/Jump1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player/Jump1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/Jump3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/Jump4.png" type="Texture" id=10]
 [ext_resource path="res://Dirt Autotile and Sky/Sky.png" type="Texture" id=11]
 
 [sub_resource type="GDScript" id=1]
@@ -77,15 +77,15 @@ animations = [ {
 "name": "run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "fall",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "jump",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "fall",
+"speed": 3.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
