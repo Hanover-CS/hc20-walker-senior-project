@@ -18,16 +18,11 @@ func _physics_process(delta):
 	
 	#Refactor these
 	if Input.is_action_pressed("ui_right"):
-		motion.x = min(motion.x+ACCELERATION, MAX_SPEED)
-		$Sprite.flip_h = false
-		$Sprite.play("run")
+		move_right()
 	elif Input.is_action_pressed("ui_left"):
-		motion.x = max(motion.x-ACCELERATION, -MAX_SPEED)
-		$Sprite.flip_h = true
-		$Sprite.play("run")
+		move_left()
 	else:
-		motion.x = lerp(motion.x, 0, 0.2)
-		$Sprite.play("idle")
+		await_input()
 		FRICTION = true
 		
 	if is_on_floor():
@@ -37,15 +32,28 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, 0.2)
 			
 	else:
-		if motion.y < 0:
-			$Sprite.play("jump")
-		else:
-			$Sprite.play("fall")
+		jump()
 		if FRICTION == true:
 			motion.x = lerp(motion.x, 0, 0.05)
 
 	motion = move_and_slide(motion, UP)
-	#pass
-	# perhaps plan on having an ai control the player for a demo
+
+func move_right():
+	motion.x = min(motion.x+ACCELERATION, MAX_SPEED)
+	$Sprite.flip_h = false
+	$Sprite.play("run")
 	
-# When you want to add something to the resource file, go to Documents.
+func move_left():
+	motion.x = max(motion.x-ACCELERATION, -MAX_SPEED)
+	$Sprite.flip_h = true
+	$Sprite.play("run")
+	
+func await_input():
+	motion.x = lerp(motion.x, 0, 0.2)
+	$Sprite.play("idle")
+	
+func jump():
+	if motion.y < 0:
+		$Sprite.play("jump")
+	else:
+		$Sprite.play("fall")
