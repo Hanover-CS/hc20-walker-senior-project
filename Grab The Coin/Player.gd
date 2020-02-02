@@ -16,6 +16,7 @@ func _physics_process(delta):
 	var FRICTION = false
 	motion.y += GRAVITY
 	
+	#Refactor these
 	if Input.is_action_pressed("ui_right"):
 		motion.x = min(motion.x+ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false

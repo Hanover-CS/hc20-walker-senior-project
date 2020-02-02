@@ -12,25 +12,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 290.0
+margin_left = 283.0
 margin_top = 219.0
-margin_right = 409.0
+margin_right = 416.0
 margin_bottom = 281.0
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 119.0
+margin_right = 133.0
 margin_bottom = 14.0
-text = "Mini Project Game"
+text = "Grab the Coin Game!"
 
 [node name="Start" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 119.0
+margin_right = 133.0
 margin_bottom = 38.0
 text = "Start"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 42.0
-margin_right = 119.0
+margin_right = 133.0
 margin_bottom = 62.0
 text = "Quit"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
