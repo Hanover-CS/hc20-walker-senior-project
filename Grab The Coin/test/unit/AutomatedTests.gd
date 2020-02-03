@@ -3,6 +3,9 @@ extends "res://addons/gut/test.gd"
 const testPlayer = preload("res://Player.gd")
 onready var test_player = testPlayer.new()
 
+const Coin = preload("res://coin.tscn")
+onready var coin = Coin.new()
+
 func before_each():
 	gut.p("ran setup", 2)
 
@@ -34,3 +37,6 @@ func test_movement3():
 	assert_eq(jump, Input.is_action_pressed("ui_up"))
 	while jump:
 		assert_eq(test_player.motion.y, test_player.JUMP_HEIGHT)
+		
+#func coin_collection1():
+	

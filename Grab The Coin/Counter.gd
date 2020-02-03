@@ -1,15 +1,21 @@
+tool
 extends Label
-
 
 var count = 0 
 
-var bodies  = $Area2D.get_overlapping_bodies()
+const Utils = preload("res://Utils.gd")
+onready var utils = Utils.new()
 
-func update_counter():
+func update_counter(bodies):
 	for body in bodies:
-		if body.name == "coin":
+		if body.name == "player":
 			increment()
 
 func increment():
-	set('count', count+1)
-	set_text(str(count) + "/10 coins")
+	print(count)
+	#set('count', count+1)
+	count+=1
+	print(count)
+	Label.text = str(count) 
+	print(text)
+	#set('text', str(count))

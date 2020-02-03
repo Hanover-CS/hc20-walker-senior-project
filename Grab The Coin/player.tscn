@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Sprites/Player/Idle0.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Player/Jump1.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Player/Jump3.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Player/Jump4.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Player/Run0.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Player/Run1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Player/Run2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Player/Run3.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Player/Run4.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Player/Run7.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player/Run0.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Player/Run1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/Run2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/Run3.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/Run4.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/Run7.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/Jump3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/Jump4.png" type="Texture" id=10]
 [ext_resource path="res://Counter.gd" type="Script" id=11]
 [ext_resource path="res://Dirt Autotile and Sky/Sky.png" type="Texture" id=12]
 
@@ -28,21 +28,18 @@ const JUMP_HEIGHT = -500
 #max jump height
 const UP = Vector2(0, -1)
 
+const DEATH = 3500
+
 func _physics_process(delta):
 	var FRICTION = false
 	motion.y += GRAVITY
 	
 	if Input.is_action_pressed(\"ui_right\"):
-		motion.x = min(motion.x+ACCELERATION, MAX_SPEED)
-		$Sprite.flip_h = false
-		$Sprite.play(\"run\")
+		move_right()
 	elif Input.is_action_pressed(\"ui_left\"):
-		motion.x = max(motion.x-ACCELERATION, -MAX_SPEED)
-		$Sprite.flip_h = true
-		$Sprite.play(\"run\")
+		move_left()
 	else:
-		motion.x = lerp(motion.x, 0, 0.2)
-		$Sprite.play(\"idle\")
+		await_input()
 		FRICTION = true
 		
 	if is_on_floor():
@@ -52,18 +49,36 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, 0.2)
 			
 	else:
-		if motion.y < 0:
-			$Sprite.play(\"jump\")
-		else:
-			$Sprite.play(\"fall\")
+		jump()
 		if FRICTION == true:
 			motion.x = lerp(motion.x, 0, 0.05)
+	if motion.y > DEATH:
+		death()
 
 	motion = move_and_slide(motion, UP)
-	#pass
-	# perhaps plan on having an ai control the player for a demo
 	
-# When you want to add something to the resource file, go to Documents."
+func death():
+	get_tree().reload_current_scene()
+
+func move_right():
+	motion.x = min(motion.x+ACCELERATION, MAX_SPEED)
+	$Sprite.flip_h = false
+	$Sprite.play(\"run\")
+	
+func move_left():
+	motion.x = max(motion.x-ACCELERATION, -MAX_SPEED)
+	$Sprite.flip_h = true
+	$Sprite.play(\"run\")
+	
+func await_input():
+	motion.x = lerp(motion.x, 0, 0.2)
+	$Sprite.play(\"idle\")
+	
+func jump():
+	if motion.y < 0:
+		$Sprite.play(\"jump\")
+	else:
+		$Sprite.play(\"fall\")"
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -77,15 +92,15 @@ animations = [ {
 "name": "jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "fall",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "fall",
+"speed": 3.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]

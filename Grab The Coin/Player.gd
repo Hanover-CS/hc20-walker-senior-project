@@ -12,11 +12,12 @@ const JUMP_HEIGHT = -500
 #max jump height
 const UP = Vector2(0, -1)
 
+const DEATH = 2000
+
 func _physics_process(delta):
 	var FRICTION = false
 	motion.y += GRAVITY
 	
-	#Refactor these
 	if Input.is_action_pressed("ui_right"):
 		move_right()
 	elif Input.is_action_pressed("ui_left"):
@@ -37,6 +38,10 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, 0.05)
 
 	motion = move_and_slide(motion, UP)
+	
+func death():
+	if motion.y > DEATH:
+		get_tree().reload_current_scene()
 
 func move_right():
 	motion.x = min(motion.x+ACCELERATION, MAX_SPEED)
