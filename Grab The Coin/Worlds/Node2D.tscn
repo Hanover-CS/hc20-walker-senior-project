@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://JungleTileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/gut/gut.gd" type="Script" id=4]
+[ext_resource path="res://addons/gut/icon.png" type="Texture" id=5]
+[ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=6]
+[ext_resource path="res://coin.tscn" type="PackedScene" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+const Coin = preload(\"res://coin.gd\")
+onready var coin = Coin.new()
+
+var count = 0 
+
+func coin_collected():
+	var bodies = coin.get_overlapping_bodies()
+	for body in bodies:
+		if body.name == \"player\":
+			print(count)
+			count+=1
+			print(count)
+			#counter.update_counter(bodies)"
+
+[node name="World 1" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 32 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 196644, 0, 0, 196645, 1, 0, 196646, 1, 0, 196647, 1, 0, 196648, 1, 0, 196649, 2, 0, 262180, 3, 0, 262181, 4, 0, 262182, 4, 0, 262183, 4, 0, 262184, 4, 0, 262185, 5, 0, 327716, 3, 0, 327717, 4, 0, 327718, 4, 0, 327719, 4, 0, 327720, 4, 0, 327721, 5, 0, 393252, 3, 0, 393253, 4, 0, 393254, 4, 0, 393255, 4, 0, 393256, 4, 0, 393257, 5, 0, 458771, 0, 0, 458772, 1, 0, 458773, 1, 0, 458774, 1, 0, 458775, 1, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 1, 0, 458780, 1, 0, 458781, 1, 0, 458782, 1, 0, 458783, 1, 0, 458784, 1, 0, 458785, 1, 0, 458786, 1, 0, 458787, 1, 0, 458788, 4, 0, 458789, 4, 0, 458790, 4, 0, 458791, 4, 0, 458792, 4, 0, 458793, 5, 0, 524307, 3, 0, 524308, 4, 0, 524309, 4, 0, 524310, 4, 0, 524311, 4, 0, 524312, 4, 0, 524313, 4, 0, 524314, 4, 0, 524315, 4, 0, 524316, 4, 0, 524317, 4, 0, 524318, 4, 0, 524319, 4, 0, 524320, 4, 0, 524321, 4, 0, 524322, 4, 0, 524323, 4, 0, 524324, 4, 0, 524325, 4, 0, 524326, 4, 0, 524327, 4, 0, 524328, 4, 0, 524329, 5, 0, 589843, 6, 0, 589844, 7, 0, 589845, 7, 0, 589846, 7, 0, 589847, 7, 0, 589848, 7, 0, 589849, 7, 0, 589850, 7, 0, 589851, 7, 0, 589852, 7, 0, 589853, 7, 0, 589854, 7, 0, 589855, 7, 0, 589856, 7, 0, 589857, 7, 0, 589858, 7, 0, 589859, 7, 0, 589860, 7, 0, 589861, 7, 0, 589862, 7, 0, 589863, 7, 0, 589864, 7, 0, 589865, 8, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WorldComplete" parent="." instance=ExtResource( 3 )]
+position = Vector2( 992, 576 )
+nextWorld = "res://World2.tscn"
+
+[node name="Gut" type="Control" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 540.0
+margin_top = -270.0
+margin_right = 1280.0
+margin_bottom = -20.0
+rect_min_size = Vector2( 740, 250 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+_select_script = "AutomatedTests"
+_tests_like = ""
+_inner_class_name = ""
+_run_on_load = false
+_should_maximize = false
+_should_print_to_console = true
+_log_level = 1
+_yield_between_tests = false
+_disable_strict_datatype_checks = false
+_test_prefix = "test_"
+_file_prefix = ""
+_file_extension = ".gd"
+_inner_class_prefix = "Test"
+_temp_directory = "user://gut_temp_directory"
+_export_path = ""
+_include_subdirectories = false
+_directory1 = "res://test/unit"
+_directory2 = "res://test/integration"
+_directory3 = ""
+_directory4 = ""
+_directory5 = ""
+_directory6 = ""
+_double_strategy = 1
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+format = 1
+tile_data = PoolIntArray( 65537, 0, 1, 65538, 0, 65536, 65539, 0, 65536, 65540, 0, 2, 131073, 0, 131073, 131074, 0, 196619, 131075, 0, 196619, 131076, 0, 131074, 196609, 0, 65537, 196610, 0, 131072, 196611, 0, 131072, 196612, 0, 65538, 196614, 0, 1, 196615, 0, 2, 262150, 0, 65537, 262151, 0, 65538, 655367, 0, 196608, 655368, 0, 196609, 655369, 0, 196609, 655370, 0, 196609, 655371, 0, 196609, 655372, 0, 196609, 655373, 0, 196609, 655374, 0, 196609, 655375, 0, 196610 )
+
+[node name="coin" parent="." instance=ExtResource( 7 )]
+position = Vector2( 270, 33.08 )
+
+[node name="coin2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 460, 162.705 )
+
+[node name="coin3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1110, 190 )
+
+[node name="coin4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 770, 200 )
+
+[node name="coin5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 560, 600 )
+
+[node name="coin6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 890, 600 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 64.0
+margin_top = -28.0
+margin_right = 139.0
+margin_bottom = -14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Find the exit!"

@@ -3,7 +3,7 @@ extends "res://addons/gut/test.gd"
 const testPlayer = preload("res://Player.gd")
 onready var test_player = testPlayer.new()
 
-const Coin = preload("res://coin.tscn")
+const Coin = preload("res://coin.gd")
 onready var coin = Coin.new()
 
 func before_each():
