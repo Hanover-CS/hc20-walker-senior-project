@@ -21,7 +21,7 @@ position = Vector2( 0, 96 )
 
 [node name="WorldComplete" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1423.25, 599.25 )
-nextWorld = "res://Node2D.tscn"
+nextWorld = "res://End Screen.tscn"
 
 [node name="coin" parent="." instance=ExtResource( 4 )]
 position = Vector2( 255, 96.375 )

@@ -1,0 +1,22 @@
+[gd_scene format=2]
+
+[node name="End Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 33.0001
+margin_top = 0.499969
+margin_right = 733.0
+margin_bottom = 500.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 281.0
+margin_top = 243.0
+margin_right = 418.0
+margin_bottom = 257.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 137.0
+margin_bottom = 14.0
+text = "Game over. Congrats!"
