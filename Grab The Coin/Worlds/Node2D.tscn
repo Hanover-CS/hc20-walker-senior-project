@@ -41,8 +41,8 @@ __meta__ = {
 }
 
 [node name="WorldComplete" parent="." instance=ExtResource( 3 )]
-position = Vector2( 992, 576 )
-nextWorld = "res://World2.tscn"
+position = Vector2( 993, 576 )
+nextWorld = "res://Worlds//World2.tscn"
 
 [node name="Gut" type="Control" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
